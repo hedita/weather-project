@@ -15,7 +15,7 @@
 }
 
 .fa-sun {
-  color: var(--yellow-color);
+  color: var(--sun-color);
   font-size: var(--bolder-font);
   padding-top: var(--spacing-large);
 }
@@ -49,7 +49,7 @@
 
 .fa-droplet {
   font-size: var(--bold-font);
-  color: var(--blue-color);
+  color: var(--drops-color);
   padding-bottom: var(--spacing-xlarge);
 }
 
@@ -69,6 +69,6 @@
 
 .fa-cloud-rain {
   font-size: var(--bold-font);
-  color: var(--blue-color);
+  color: var(--drops-color);
 }
 
