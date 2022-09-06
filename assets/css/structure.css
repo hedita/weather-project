@@ -1,79 +1,66 @@
-.first-section {
+.fa-magnifying-glass {
+  font-size: var(--bold-font);
   padding: var(--spacing-large);
 }
 
-.second-section {
+.city-name {
   text-align: center;
-  padding: var(--spacing-large);
-}
-
-.first-child-ss {
   padding: var(--spacing-large);
   font-size: var(--bolder-font);
 }
 
-.third-section {
+.date {
   text-align: center;
-  padding: var(--spacing-large);
-}
-
-.first-child-ts {
-  padding-top: var(--spacing-large);
-}
-
-.second-child-ts {
-  padding: var(--spacing-large);
-  font-size: var(--bolder-font);
-}
-
-.fourth-section {
-  display: flex;
-  justify-content: center;
-  padding-bottom: var(--spacing-xlarge);
-}
-
-.first-child-fs {
-  padding-right: var(--spacing-xlarge);
-}
-
-.fifth-section {
-  display: flex;
-  justify-content: space-around;
-  padding-top: var(--spacing-xlarge);
-  margin-top: var(--spacing-xlarge);
-}
-
-.first-child-fifth-s {
-  line-height: var(--spacing-large);
-  text-align: center;
-}
-
-.second-child-fifth-s {
-  line-height: var(--spacing-large);
-  text-align: center;
-}
-
-.third-child-fifth-s {
-  line-height: var(--spacing-large);
-  text-align: center;
+  font-size: var(--bold-font);
 }
 
 .fa-sun {
   color: var(--yellow-color);
   font-size: var(--bolder-font);
+  padding-top: var(--spacing-large);
 }
 
-.fa-magnifying-glass {
+.sun-icon {
+  text-align: center;
+  padding-top: var(--spacing-xlarge);
+}
+
+.temperature {
+  padding: var(--spacing-large);
+  font-size: var(--bolder-font);
+  text-align: center;
+}
+
+.description {
+  text-align: center;
   font-size: var(--bold-font);
+  padding-bottom: var(--spacing-xlarge);
+}
+
+.wind-rain {
+  text-align: center;
 }
 
 .fa-wind {
   font-size: var(--bold-font);
+  padding-right: var(--spacing-xlarge);
+  padding-bottom: var(--spacing-xlarge);
 }
 
 .fa-droplet {
   font-size: var(--bold-font);
   color: var(--blue-color);
+  padding-bottom: var(--spacing-xlarge);
+}
+
+
+.next-days-container{
+  display: flex;
+  justify-content: space-around;
+  padding-top: var(--spacing-xlarge);
+  margin-top: var(--spacing-xlarge);
+  text-align: center;
+  line-height: var(--spacing-large);
 }
 
 .fa-cloud-sun {
@@ -84,3 +71,4 @@
   font-size: var(--bold-font);
   color: var(--blue-color);
 }
+
