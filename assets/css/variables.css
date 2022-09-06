@@ -11,9 +11,9 @@
     --spacing-large: calc(var(--spacing) * 3);
     --spacing-xlarge: calc(var(--spacing) * 4);
 
-    --primary-color: white;
-    --yellow-color: yellow;
-    --blue-color: rgb(123, 123, 247);
+    --text-color: white;
+    --sun-color: yellow;
+    --drops-color: rgb(123, 123, 247);
 
     --backdrop-filter: 5px;
   }
