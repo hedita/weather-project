@@ -1,10 +1,10 @@
 body {
-  color: var(--primary-color);
+  color: var(--text-color);
   background-image: url("../img/background-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(var(--backdrop-filter)); 
-  height: 1200px;
+  min-height: 100vh;
   background-position: center;
 }
 
