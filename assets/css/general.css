@@ -3,7 +3,7 @@ body {
   background-image: url("../img/background-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(var(--backdrop-filter)); 
   height: 1200px;
   background-position: center;
 }
