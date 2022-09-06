@@ -1,0 +1,12 @@
+:root {
+    --primary-font: "open-sans";
+    --thin-font: 0.5em;
+    --normal-font: 1em;
+    --bold-font: 1.5em;
+  
+    --spacing: 8px;
+    --spacing-xsmall: calc(var(--spacing));
+    --spacing-small: calc(var(--spacing) * 2);
+    --spacing-large: calc(var(--spacing) * 3);
+    --spacing-xlarge: calc(var(--spacing) * 4);
+  }
