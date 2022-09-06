@@ -3,6 +3,7 @@
     --thin-font: 0.5em;
     --normal-font: 1em;
     --bold-font: 1.5em;
+    --bolder-font: 3em;
   
     --spacing: 8px;
     --spacing-xsmall: calc(var(--spacing));
