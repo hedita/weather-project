@@ -10,4 +10,7 @@
     --spacing-small: calc(var(--spacing) * 2);
     --spacing-large: calc(var(--spacing) * 3);
     --spacing-xlarge: calc(var(--spacing) * 4);
+
+    --primary-color: white;
+    --secondery-color: yellow;
   }
