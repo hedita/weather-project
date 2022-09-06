@@ -12,5 +12,6 @@
     --spacing-xlarge: calc(var(--spacing) * 4);
 
     --primary-color: white;
-    --secondery-color: yellow;
+    --yellow-color: yellow;
+    --blue-color: rgb(123, 123, 247);
   }
