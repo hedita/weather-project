@@ -9,8 +9,9 @@
   font-size: var(--bolder-font);
 }
 
-.date {
-  text-align: center;
+.time {
+  display: flex;
+  justify-content: center;
   font-size: var(--bold-font);
 }
 
