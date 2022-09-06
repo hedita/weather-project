@@ -1,10 +1,10 @@
 .first-section {
- padding: var(--spacing-large);
+  padding: var(--spacing-large);
 }
 
 .second-section {
-   text-align: center;
-   padding: var(--spacing-large);
+  text-align: center;
+  padding: var(--spacing-large);
 }
 
 .first-child-ss {
