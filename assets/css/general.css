@@ -3,9 +3,9 @@ body {
   background-image: url("../img/background-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; 
   backdrop-filter: blur(5px); 
-  height: auto;
+  height: 1200px;
+  background-position: center;
 }
 
 .site-wrapper {
