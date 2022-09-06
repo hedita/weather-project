@@ -1,0 +1,14 @@
+body {
+  color: var(--primary-color);
+  background-image: url("../img/background-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
+ 
+}
+
+.site-wrapper {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
