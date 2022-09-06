@@ -59,7 +59,7 @@
 }
 
 .fa-sun {
-  color: yellow;
+  color: var(--secondery-color);
   font-size: var(--bolder-font);
 }
 
