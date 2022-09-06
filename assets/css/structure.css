@@ -1,5 +1,5 @@
 .first-section {
- padding-left: var(--spacing-large);
+ padding: var(--spacing-large);
 }
 
 .second-section {
