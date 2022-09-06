@@ -59,7 +59,7 @@
 }
 
 .fa-sun {
-  color: var(--secondery-color);
+  color: var(--yellow-color);
   font-size: var(--bolder-font);
 }
 
@@ -73,6 +73,7 @@
 
 .fa-droplet {
   font-size: var(--bold-font);
+  color: var(--blue-color);
 }
 
 .fa-cloud-sun {
@@ -81,4 +82,5 @@
 
 .fa-cloud-rain {
   font-size: var(--bold-font);
+  color: var(--blue-color);
 }
