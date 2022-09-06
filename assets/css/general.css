@@ -1,0 +1,15 @@
+body {
+  color: var(--text-color);
+  background-image: url("../img/background-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(var(--backdrop-filter)); 
+  min-height: 100vh;
+  background-position: center;
+}
+
+.site-wrapper {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
