@@ -9,7 +9,7 @@
 
 .first-child-ss {
   padding: var(--spacing-large);
-  font-size: var(--bold-font);
+  font-size: var(--bolder-font);
 }
 
 .third-section {
@@ -23,6 +23,7 @@
 
 .second-child-ts {
   padding: var(--spacing-large);
+  font-size: var(--bolder-font);
 }
 
 .fourth-section {
@@ -55,4 +56,29 @@
 .third-child-fifth-s {
   line-height: var(--spacing-large);
   text-align: center;
+}
+
+.fa-sun {
+  color: yellow;
+  font-size: var(--bolder-font);
+}
+
+.fa-magnifying-glass {
+  font-size: var(--bold-font);
+}
+
+.fa-wind {
+  font-size: var(--bold-font);
+}
+
+.fa-droplet {
+  font-size: var(--bold-font);
+}
+
+.fa-cloud-sun {
+  font-size: var(--bold-font);
+}
+
+.fa-cloud-rain {
+  font-size: var(--bold-font);
 }
