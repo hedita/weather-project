@@ -8,12 +8,12 @@ async function getWeather() {
 }
   getWeather(); 
 
-  const time = document.getElementById("time");
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.toLocaleString('default', { month: 'short' });
-  const dayName = now.toLocaleString('en-us', {weekday:'long'});
-  const dayNumber = now.getUTCDate();
-  const date = dayName + ", " + dayNumber + " " + month + " " + year;
-  time.innerHTML = date;
+const time = document.getElementById("time");
+const now = new Date();
+const year = now.getFullYear();
+const month = now.toLocaleString('default', { month: 'short' });
+const dayName = now.toLocaleString('en-us', {weekday:'long'});
+const dayNumber = now.getUTCDate();
+const date = dayName + ", " + dayNumber + " " + month + " " + year;
+time.innerHTML = date;
 
