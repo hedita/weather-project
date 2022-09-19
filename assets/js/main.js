@@ -1,5 +1,5 @@
 async function getWeather() {
-    const result = await fetch("https://api.openweathermap.org/data/2.5/forecast?lat=37.2713&lon=49.5921&appid=e0cb24360c821c3571a49c9d05be0fb1")
+    const result = await fetch("https://api.openweathermap.org/data/2.5/forecast?lat=37.2713&lon=49.5921&units=metric&appid=e0cb24360c821c3571a49c9d05be0fb1")
     const resultJson = await result.json();
     const cityName = document.getElementById("city-name");
     const {city, list}  = resultJson;
@@ -10,12 +10,12 @@ async function getWeather() {
     wind.innerHTML = windSpeed;
 
     const rain = document.getElementById("rain");
-    const rainChance = list[0].rain;
-    //rain.innerHTML = rainChance;
+    const rainChance = list[0].weather[0].rain;
+    rain.innerHTML = rainChance;
 
-    const temp = document.getElementById("temp");
-    const temperature = list[0].main.temp;
-    temp.innerHTML = (temperature-32)*5 /9;
+    let temp = document.getElementById("temp");
+    let temperature = list[0].main.temp;
+    temp.innerHTML = `${Math.round(temperature)}&#176;C`;
 
     const description = document.getElementById("description");
     const descrip = list[0].weather[0].description;
