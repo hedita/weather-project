@@ -9,9 +9,9 @@ async function getWeather() {
     const windSpeed = list[0].wind.speed;
     wind.innerHTML = windSpeed;
 
-    const rain = document.getElementById("rain");
-    const rainChance = list[0].weather[0].rain;
-    rain.innerHTML = rainChance;
+    const humidity = document.getElementById("humidity");
+    const humidityPercent = list[0].main.humidity;
+    humidity.innerHTML = `${humidityPercent}%`;
 
     const temp = document.getElementById("temp");
     const todayTemp = document.getElementById("today-temp");
