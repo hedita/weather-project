@@ -13,10 +13,18 @@ async function getWeather() {
     const rainChance = list[0].weather[0].rain;
     rain.innerHTML = rainChance;
 
-    let temp = document.getElementById("temp");
-    let temperature = list[0].main.temp;
+    const temp = document.getElementById("temp");
+    const todayTemp = document.getElementById("today-temp");
+    const tomorrow = document.getElementById("tomorrow");
+    const dayAfterTomorrow = document.getElementById("day-after-tomorrow");
+    const temperature = list[0].main.temp;
     temp.innerHTML = `${Math.round(temperature)}&#176;C`;
-
+    todayTemp.innerHTML = `${Math.round(temperature)}&#176;C`;
+    const tomorrowTemperature = list[5].main.temp;
+    tomorrow.innerHTML = `${Math.round(tomorrowTemperature)}&#176;C`;
+    const dayAfterTomorrowTemp = list[10].main.temp;
+    dayAfterTomorrow.innerHTML = `${Math.round(dayAfterTomorrowTemp)}&#176;C`;
+    
     const description = document.getElementById("description");
     const descrip = list[0].weather[0].description;
     description.innerHTML = descrip;
@@ -24,13 +32,14 @@ async function getWeather() {
     const iconId = document.getElementById("icon");
     //const icon = list[0].weather[0].icon;
     //iconId.innerHTML = icon;
-
-   console.log(list[0])
+  
+   console.log(list)
 }
   getWeather(); 
 
 const time = document.getElementById("time");
 const now = new Date();
+const tomorrow = now.getDate() + 1;
 const year = now.getFullYear();
 const month = now.toLocaleString('default', { month: 'short' });
 const dayName = now.toLocaleString('en-us', {weekday:'long'});
