@@ -37,17 +37,17 @@ async function getWeather() {
     const now = new Date();
     const tomorrowDate = new Date(list[5].dt *1000);
     const tomorrowDayName = document.getElementById("tomorrow-day-name");
-    const dayNameTomorrow = tomorrowDate.toLocaleString('en-us', { weekday: 'long' });
+    const dayNameTomorrow = tomorrowDate.toLocaleString("en-us", { weekday: "long" });
     tomorrowDayName.innerHTML = dayNameTomorrow;
     const dayAfterTomorrowDate = new Date(list[11].dt *1000);
     
     const dayAfterTomorrowDayName = document.getElementById("day-after-tomorrow-day-name");
-    const DayNameDayAfterTomorrow = dayAfterTomorrowDate.toLocaleString('en-us', { weekday: 'long' });
+    const DayNameDayAfterTomorrow = dayAfterTomorrowDate.toLocaleString("en-us", { weekday: "long" });
     dayAfterTomorrowDayName.innerHTML = DayNameDayAfterTomorrow;
     
     const year = now.getFullYear();
-    const month = now.toLocaleString('default', { month: 'short' });
-    const dayName = now.toLocaleString('en-us', { weekday: 'long' });
+    const month = now.toLocaleString("default", { month: "short" });
+    const dayName = now.toLocaleString("en-us", { weekday: "long" });
     const dayNumber = now.getUTCDate();
     const date = `${dayName}, ${dayNumber} ${month} ${year}`;
     time.innerHTML = date;  
