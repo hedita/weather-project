@@ -50,7 +50,6 @@ async function getWeather() {
     const dayName = now.toLocaleString("en-us", { weekday: "long" });
     const dayNumber = now.getUTCDate();
     const date = `${dayName}, ${dayNumber} ${month} ${year}`;
-    time.innerHTML = date;  
-   console.log(list)
+    time.innerHTML = date;
 }
   getWeather(); 
