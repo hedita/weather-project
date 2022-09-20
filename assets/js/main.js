@@ -49,7 +49,7 @@ async function getWeather() {
     const month = now.toLocaleString('default', { month: 'short' });
     const dayName = now.toLocaleString('en-us', {weekday:'long'});
     const dayNumber = now.getUTCDate();
-    const date = dayName + ", " + dayNumber + " " + month + " " + year;
+    const date = `${dayName}, ${dayNumber} ${month} ${year}`;
     time.innerHTML = date;  
    console.log(list)
 }
