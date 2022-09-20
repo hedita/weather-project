@@ -35,11 +35,11 @@ async function getWeather() {
   
     const time = document.getElementById("time");
     const now = new Date();
-    const tomorrowDate = new Date(list[5].dt);
+    const tomorrowDate = new Date(list[5].dt *1000);
     const tomorrowDayName = document.getElementById("tomorrow-day-name");
     const dayNameTomorrow = tomorrowDate.toLocaleString('en-us', {weekday:'long'});
     tomorrowDayName.innerHTML = dayNameTomorrow;
-    const dayAfterTomorrowDate = new Date(list[10].dt);
+    const dayAfterTomorrowDate = new Date(list[11].dt *100);
     
     const dayAfterTomorrowDayName = document.getElementById("day-after-tomorrow-day-name");
     const DayNameDayAfterTomorrow = dayAfterTomorrowDate.toLocaleString('en-us', {weekday:'long'});
