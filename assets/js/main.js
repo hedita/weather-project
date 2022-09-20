@@ -30,8 +30,8 @@ async function getWeather() {
     description.innerHTML = descrip;
 
     const iconId = document.getElementById("icon");
-    //const icon = list[0].weather[0].icon;
-    //iconId.innerHTML = icon;
+    const icon = list[0].weather[0].icon;
+    iconId.innerHTML = icon;
   
    console.log(list)
 }
@@ -39,7 +39,15 @@ async function getWeather() {
 
 const time = document.getElementById("time");
 const now = new Date();
-const tomorrow = now.getDate() + 1;
+const tomorrow = new Date(1663729200000);
+const tomorrowDayName = document.getElementById("tomorrow-day-name");
+const dayNameTomorrow = tomorrow.toLocaleString('en-us', {weekday:'long'});
+tomorrowDayName.innerHTML = dayNameTomorrow;
+const dayAfterTomorrow = new Date(166378320000);
+const dayAfterTomorrowDayName = document.getElementById("day-after-tomorrow-day-name");
+const DayNameDayAfterTomorrow = dayAfterTomorrow.toLocaleString('en-us', {weekday:'long'});
+dayAfterTomorrowDayName.innerHTML = DayNameDayAfterTomorrow;
+
 const year = now.getFullYear();
 const month = now.toLocaleString('default', { month: 'short' });
 const dayName = now.toLocaleString('en-us', {weekday:'long'});
