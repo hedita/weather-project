@@ -33,24 +33,24 @@ async function getWeather() {
     const icon = list[0].weather[0].icon;
     iconId.innerHTML = icon;
   
+    const time = document.getElementById("time");
+    const now = new Date();
+    const tomorrowDate = new Date(list[5].dt);
+    const tomorrowDayName = document.getElementById("tomorrow-day-name");
+    const dayNameTomorrow = tomorrowDate.toLocaleString('en-us', {weekday:'long'});
+    tomorrowDayName.innerHTML = dayNameTomorrow;
+    const dayAfterTomorrowDate = new Date(list[10].dt);
+    
+    const dayAfterTomorrowDayName = document.getElementById("day-after-tomorrow-day-name");
+    const DayNameDayAfterTomorrow = dayAfterTomorrowDate.toLocaleString('en-us', {weekday:'long'});
+    dayAfterTomorrowDayName.innerHTML = DayNameDayAfterTomorrow;
+    
+    const year = now.getFullYear();
+    const month = now.toLocaleString('default', { month: 'short' });
+    const dayName = now.toLocaleString('en-us', {weekday:'long'});
+    const dayNumber = now.getUTCDate();
+    const date = dayName + ", " + dayNumber + " " + month + " " + year;
+    time.innerHTML = date;  
    console.log(list)
 }
   getWeather(); 
-
-const time = document.getElementById("time");
-const now = new Date();
-const tomorrow = new Date(1663729200000);
-const tomorrowDayName = document.getElementById("tomorrow-day-name");
-const dayNameTomorrow = tomorrow.toLocaleString('en-us', {weekday:'long'});
-tomorrowDayName.innerHTML = dayNameTomorrow;
-const dayAfterTomorrow = new Date(166378320000);
-const dayAfterTomorrowDayName = document.getElementById("day-after-tomorrow-day-name");
-const DayNameDayAfterTomorrow = dayAfterTomorrow.toLocaleString('en-us', {weekday:'long'});
-dayAfterTomorrowDayName.innerHTML = DayNameDayAfterTomorrow;
-
-const year = now.getFullYear();
-const month = now.toLocaleString('default', { month: 'short' });
-const dayName = now.toLocaleString('en-us', {weekday:'long'});
-const dayNumber = now.getUTCDate();
-const date = dayName + ", " + dayNumber + " " + month + " " + year;
-time.innerHTML = date;
