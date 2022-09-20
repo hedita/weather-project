@@ -11,34 +11,35 @@
 <body> 
   <div class="site-wrapper">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <p class="city-name">city</p>
-    <time class="time">time</time>
+    <p id="city-name" class="city-name"></p>
+    <time id="time" class="time"></time>
     <div class="sun-icon">
-      <i class="fa-solid fa-sun"></i>
+      <i id = "icon" class="fa-solid fa-sun"></i>
     </div>
-    <p class="temperature">25&deg;C</p>
-    <p class="description">Description</p>
-    <div class="wind-rain">
-      <i class="fa-solid fa-wind"></i>
-      <i class="fa-solid fa-droplet"></i>
+    <p id="temp" class="temperature">&deg;C</p>
+    <p id ="description" class="description"></p>
+    <div class="wind-humidity">
+      <i id="wind" class="fa-solid fa-wind"></i>
+      <i id="humidity" class="fa-solid fa-droplet"></i>
     </div>
     <div class="next-days-container">
       <div>
         <i class="fa-solid fa-cloud-sun"></i>
-        <div>temperature</div>
-        <div>date</div>
+        <div id="today-temp">temperature</div>
+        <div>Today</div>
       </div>
       <div>    
         <i class="fa-solid fa-cloud-rain"></i>
-        <div>temperature</div>
-        <div>date</div>
+        <div id="tomorrow">temperature</div>
+        <div id="tomorrow-day-name"></div>
       </div>
       <div>
         <i class="fa-solid fa-cloud-rain"></i>
-        <div>temperature</div>
-        <div>date</div>
+        <div id="day-after-tomorrow">temperature</div>
+        <div id="day-after-tomorrow-day-name"></div>
       </div>
     </div>
-  </div>    
+  </div>
+  <script src="./assets/js/main.js"></script>    
 </body>
 </html>
