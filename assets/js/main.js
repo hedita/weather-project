@@ -12,9 +12,9 @@ selectedCityName.addEventListener("click", () => {
   }
 });
 
-async function getCityLocatin(object) {
+async function getCityLocatin(city) {
   const fetchedData = await fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${object.name},${object.countryCode}&limit=1&appid=e0cb24360c821c3571a49c9d05be0fb1`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city.name},${city.countryCode}&limit=1&appid=e0cb24360c821c3571a49c9d05be0fb1`
   );
   const selectedCityLocation = await fetchedData.json();
 
