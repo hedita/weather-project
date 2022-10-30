@@ -28,9 +28,8 @@ async function getWeather(lat, lon) {
   const result = await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=e0cb24360c821c3571a49c9d05be0fb1`
   );
-  const resultJson = await result.json();
+  const { city, list } = await result.json();
   const cityName = document.getElementById("city-name");
-  const { city, list } = resultJson;
 
   cityName.innerHTML = city.name;
 
