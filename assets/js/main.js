@@ -19,6 +19,7 @@ async function getCityLocatin(city) {
     `https://api.openweathermap.org/geo/1.0/direct?q=${city.name},${city.countryCode}&limit=1&appid=${appId}`
   );
   const selectedCityLocation = await fetchedData.json();
+
   
   const [{lat,lon}] = selectedCityLocation;
 
@@ -31,7 +32,6 @@ async function getWeather(lat, lon) {
   );
   const { city, list } = await result.json();
   const cityName = document.getElementById("city-name");
-
   cityName.innerHTML = city.name;
 
   const wind = document.getElementById("wind");
@@ -58,9 +58,19 @@ async function getWeather(lat, lon) {
   const descrip = list[0].weather[0].description;
   description.innerHTML = descrip;
 
-  const iconId = document.getElementById("icon");
+  const iconId = document.getElementById("today-icon");
   const icon = list[0].weather[0].icon;
-  iconId.innerHTML = icon;
+  const iconImage = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  iconId.innerHTML = `<img src=${iconImage} />`
+
+  const todayIcon = document.getElementById("today-icon");
+  todayIcon.innerHTML = `<img src=${iconImage} />`
+
+  const tomorrowIcon = document.getElementById("tommorow-icon");
+  tomorrowIcon.innerHTML = `<img src=${iconImage} />`
+
+  const dayAfterTomorrowIcon = document.getElementById("day-after-tommorow-icon");
+  dayAfterTomorrowIcon.innerHTML = `<img src=${iconImage} />`
 
   const time = document.getElementById("time");
   const now = new Date();
