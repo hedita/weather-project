@@ -73,3 +73,6 @@
   color: var(--drops-color);
 }
 
+.today-icon {
+  text-align: center;
+}
