@@ -58,7 +58,7 @@ async function getWeather(lat, lon) {
   const descrip = list[0].weather[0].description;
   description.innerHTML = descrip;
 
-  const iconId = document.getElementById("today-icon");
+  const iconId = document.getElementById("current-icon");
   const icon = list[0].weather[0].icon;
   const iconImage = `http://openweathermap.org/img/wn/${icon}@2x.png`;
   iconId.innerHTML = `<img src=${iconImage} />`
