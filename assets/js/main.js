@@ -19,8 +19,8 @@ async function getCityLocatin(city) {
     `https://api.openweathermap.org/geo/1.0/direct?q=${city.name},${city.countryCode}&limit=1&appid=${appId}`
   );
   const selectedCityLocation = await fetchedData.json();
-
-  const {lat,lon} = {lat: selectedCityLocation[0].lat, lon: selectedCityLocation[0].lon};
+  
+  const [{lat,lon}] = selectedCityLocation;
 
   getWeather(lat, lon);
 }
