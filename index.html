@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="./assets/css/all.min.css">
+  <head>
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
-</head>
-<body> 
-  <div class="site-wrapper">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <p id="city-name" class="city-name"></p>
-    <time id="time" class="time"></time>
-    <div class="sun-icon">
-      <i id = "icon" class="fa-solid fa-sun"></i>
-    </div>
-    <p id="temp" class="temperature">&deg;C</p>
-    <p id ="description" class="description"></p>
-    <div class="wind-humidity">
-      <i id="wind" class="fa-solid fa-wind"></i>
-      <i id="humidity" class="fa-solid fa-droplet"></i>
-    </div>
-    <div class="next-days-container">
-      <div>
-        <i class="fa-solid fa-cloud-sun"></i>
-        <div id="today-temp">temperature</div>
-        <div>Today</div>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <input type="search" list="cities" />
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <select id="cities">
+        <option value="rasht" selected>Rasht</option>
+        <option value="tehran">Tehran</option>
+        <option value="stockholm">Stockholm</option>
+      </select>
+      <p id="city-name" class="city-name"></p>
+      <time id="time" class="time"></time>
+      <div class="sun-icon">
+        <i id="icon" class="fa-solid fa-sun"></i>
       </div>
-      <div>    
-        <i class="fa-solid fa-cloud-rain"></i>
-        <div id="tomorrow">temperature</div>
-        <div id="tomorrow-day-name"></div>
+      <p id="temp" class="temperature">&deg;C</p>
+      <p id="description" class="description"></p>
+      <div class="wind-humidity">
+        <i id="wind" class="fa-solid fa-wind"></i>
+        <i id="humidity" class="fa-solid fa-droplet"></i>
       </div>
-      <div>
-        <i class="fa-solid fa-cloud-rain"></i>
-        <div id="day-after-tomorrow">temperature</div>
-        <div id="day-after-tomorrow-day-name"></div>
+      <div class="next-days-container">
+        <div>
+          <i class="fa-solid fa-cloud-sun"></i>
+          <div id="today-temp">temperature</div>
+          <div>Today</div>
+        </div>
+        <div>
+          <i class="fa-solid fa-cloud-rain"></i>
+          <div id="tomorrow">temperature</div>
+          <div id="tomorrow-day-name"></div>
+        </div>
+        <div>
+          <i class="fa-solid fa-cloud-rain"></i>
+          <div id="day-after-tomorrow">temperature</div>
+          <div id="day-after-tomorrow-day-name"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="./assets/js/main.js"></script>    
-</body>
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
