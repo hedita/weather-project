@@ -2,6 +2,7 @@ const selectedCityName = document.getElementById("cities");
 const lat = 37.2793607;
 const lon = 49.5846102;
 
+
 selectedCityName.addEventListener("click", () => {
   if (selectedCityName.value === "rasht") {
     getCityLocatin({ name: "Rasht", countryCode: "IR" });
@@ -18,8 +19,7 @@ async function getCityLocatin(city) {
   );
   const selectedCityLocation = await fetchedData.json();
 
-  const lat = selectedCityLocation[0].lat;
-  const lon = selectedCityLocation[0].lon;
+  const {lat,lon} = {lat: selectedCityLocation[0].lat, lon: selectedCityLocation[0].lon};
 
   getWeather(lat, lon);
 }
