@@ -60,17 +60,21 @@ async function getWeather(lat, lon) {
 
   const iconId = document.getElementById("current-icon");
   const icon = list[0].weather[0].icon;
+  const iconTomorrow = list[5].weather[0].icon;
+  const iconDayAfterTomorrow = list[10].weather[0].icon;
   const iconImage = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  const iconImageTomorrow= `http://openweathermap.org/img/wn/${iconTomorrow}@2x.png`;
+  const iconImageDayAfterTomorrow = `http://openweathermap.org/img/wn/${iconDayAfterTomorrow}@2x.png`;
   iconId.innerHTML = `<img src=${iconImage} />`
 
   const todayIcon = document.getElementById("today-icon");
   todayIcon.innerHTML = `<img src=${iconImage} />`
 
   const tomorrowIcon = document.getElementById("tommorow-icon");
-  tomorrowIcon.innerHTML = `<img src=${iconImage} />`
+  tomorrowIcon.innerHTML = `<img src=${iconImageTomorrow} />`
 
   const dayAfterTomorrowIcon = document.getElementById("day-after-tommorow-icon");
-  dayAfterTomorrowIcon.innerHTML = `<img src=${iconImage} />`
+  dayAfterTomorrowIcon.innerHTML = `<img src=${iconImageDayAfterTomorrow} />`
 
   const time = document.getElementById("time");
   const now = new Date();
