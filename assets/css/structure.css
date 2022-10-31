@@ -73,3 +73,6 @@
   color: var(--drops-color);
 }
 
+.current-icon {
+  text-align: center;
+}
