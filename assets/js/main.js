@@ -1,104 +1,126 @@
+const cityDropdown = document.getElementById("cities");
 const appId = "e0cb24360c821c3571a49c9d05be0fb1";
-const selectedCityName = document.getElementById("cities");
-const lat = 37.2793607;
-const lon = 49.5846102;
 
+const cities = [
+  { name: "Rasht", countryCode: "IR" },
+  { name: "Tehran", countryCode: "IR" },
+  { name: "Stockholm", countryCode: "SE" },
+];
 
-selectedCityName.addEventListener("click", () => {
-  if (selectedCityName.value === "rasht") {
-    getCityLocatin({ name: "Rasht", countryCode: "IR" });
-  } else if (selectedCityName.value === "tehran") {
-    getCityLocatin({ name: "Tehran", countryCode: "IR" });
-  } else if (selectedCityName.value === "stockholm") {
-    getCityLocatin({ name: "Stockholm", countryCode: "SE" });
-  }
-});
-
-async function getCityLocatin(city) {
-  const fetchedData = await fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city.name},${city.countryCode}&limit=1&appid=${appId}`
-  );
-  const selectedCityLocation = await fetchedData.json();
-
-  
-  const [{lat,lon}] = selectedCityLocation;
-
-  getWeather(lat, lon);
+function generateValueFromCity(city) {
+  return `${city.name},${city.countryCode}`;
 }
 
-async function getWeather(lat, lon) {
-  const result = await fetch(
+function createCitiesOptions(cities) {
+  let optionsHtml = "";
+  cities.forEach((city) => {
+    optionsHtml += `<option value="${generateValueFromCity(city)}">${
+      city.name
+    }</option>`;
+  });
+  cityDropdown.innerHTML = optionsHtml;
+}
+
+async function getCityLocation(city) {
+  const data = await fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${appId}`
+  );
+
+  const [{ lat, lon }] = await data.json();
+
+  return { lat, lon };
+}
+
+async function getCityWeather(lat, lon) {
+  const data = await fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${appId}`
   );
-  const { city, list } = await result.json();
-  const cityName = document.getElementById("city-name");
-  cityName.innerHTML = city.name;
+  const result = await data.json();
 
-  const wind = document.getElementById("wind");
+  return result;
+}
+
+async function showCityWeather(city, list) {
+  const cityNameElement = document.getElementById("city-name");
+  const windSpeedElement = document.getElementById("wind");
+  const humidityElement = document.getElementById("humidity");
+  const tempElement = document.getElementById("temp");
+  const descriptionElement = document.getElementById("description");
+  const timeElement = document.getElementById("time");
+  const iconElement = document.getElementById("current-icon");
+
   const windSpeed = list[0].wind.speed;
-  wind.innerHTML = windSpeed;
-
-  const humidity = document.getElementById("humidity");
   const humidityPercent = list[0].main.humidity;
-  humidity.innerHTML = `${humidityPercent}%`;
-
-  const temp = document.getElementById("temp");
-  const todayTemp = document.getElementById("today-temp");
-  const tomorrow = document.getElementById("tomorrow");
-  const dayAfterTomorrow = document.getElementById("day-after-tomorrow");
   const temperature = list[0].main.temp;
-  temp.innerHTML = `${Math.round(temperature)}&#176;C`;
-  todayTemp.innerHTML = `${Math.round(temperature)}&#176;C`;
-  const tomorrowTemperature = list[5].main.temp;
-  tomorrow.innerHTML = `${Math.round(tomorrowTemperature)}&#176;C`;
-  const dayAfterTomorrowTemp = list[10].main.temp;
-  dayAfterTomorrow.innerHTML = `${Math.round(dayAfterTomorrowTemp)}&#176;C`;
-
-  const description = document.getElementById("description");
-  const descrip = list[0].weather[0].description;
-  description.innerHTML = descrip;
-
-  const iconId = document.getElementById("current-icon");
+  const description = list[0].weather[0].description;
   const icon = list[0].weather[0].icon;
-  const iconTomorrow = list[5].weather[0].icon;
-  const iconDayAfterTomorrow = list[10].weather[0].icon;
-  const iconImage = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-  const iconImageTomorrow= `http://openweathermap.org/img/wn/${iconTomorrow}@2x.png`;
-  const iconImageDayAfterTomorrow = `http://openweathermap.org/img/wn/${iconDayAfterTomorrow}@2x.png`;
-  iconId.innerHTML = `<img src=${iconImage} />`
-
-  const todayIcon = document.getElementById("today-icon");
-  todayIcon.innerHTML = `<img src=${iconImage} />`
-
-  const tomorrowIcon = document.getElementById("tommorow-icon");
-  tomorrowIcon.innerHTML = `<img src=${iconImageTomorrow} />`
-
-  const dayAfterTomorrowIcon = document.getElementById("day-after-tommorow-icon");
-  dayAfterTomorrowIcon.innerHTML = `<img src=${iconImageDayAfterTomorrow} />`
-
-  const time = document.getElementById("time");
   const now = new Date();
-  const tomorrowDate = new Date(list[5].dt * 1000);
-  const tomorrowDayName = document.getElementById("tomorrow-day-name");
-  const dayNameTomorrow = tomorrowDate.toLocaleString("en-us", {
-    weekday: "long",
-  });
-  tomorrowDayName.innerHTML = dayNameTomorrow;
-  const dayAfterTomorrowDate = new Date(list[11].dt * 1000);
-
-  const dayAfterTomorrowDayName = document.getElementById(
-    "day-after-tomorrow-day-name"
-  );
-  const DayNameDayAfterTomorrow = dayAfterTomorrowDate.toLocaleString("en-us", {
-    weekday: "long",
-  });
-  dayAfterTomorrowDayName.innerHTML = DayNameDayAfterTomorrow;
-
   const year = now.getFullYear();
   const month = now.toLocaleString("default", { month: "short" });
   const dayName = now.toLocaleString("en-us", { weekday: "long" });
   const dayNumber = now.getUTCDate();
-  const date = `${dayName}, ${dayNumber} ${month} ${year}`;
-  time.innerHTML = date;
+
+  cityNameElement.innerHTML = city.name;
+  windSpeedElement.innerHTML = windSpeed;
+  humidityElement.innerHTML = `${humidityPercent}%`;
+  tempElement.innerHTML = `${Math.round(temperature)}&#176;C`;
+  descriptionElement.innerHTML = description;
+  timeElement.innerHTML = `${dayName}, ${dayNumber} ${month} ${year}`;
+  iconElement.innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@2x.png" />`;
+
+  // Today
+  const today = createDayBox(
+    `http://openweathermap.org/img/wn/${list[0].weather[0].icon}@2x.png`,
+    Math.round(list[0].main.temp),
+    "Today"
+  );
+
+  // tomorrow
+  const dayNameTomorrow = new Date(list[5].dt * 1000).toLocaleString("en-us", {
+    weekday: "long",
+  });
+  const tomorrow = createDayBox(
+    `http://openweathermap.org/img/wn/${list[5].weather[0].icon}@2x.png`,
+    Math.round(list[5].main.temp),
+    dayNameTomorrow
+  );
+
+  // day after tomorrow
+  const dayNameDayAfterTomorrow = new Date(list[11].dt * 1000).toLocaleString(
+    "en-us",
+    {
+      weekday: "long",
+    }
+  );
+  const dayAfterTomorrow = createDayBox(
+    `http://openweathermap.org/img/wn/${list[10].weather[0].icon}@2x.png`,
+    Math.round(list[10].main.temp),
+    dayNameDayAfterTomorrow
+  );
+
+  document.getElementById(
+    "next-days-container"
+  ).innerHTML = `${today}${tomorrow}${dayAfterTomorrow}`;
 }
-getWeather(lat, lon);
+
+function createDayBox(iconUrl, temp, dayName) {
+  return `<div>
+            <div><img src="${iconUrl}"></div>
+            <div>${temp}°C</div>
+            <div>${dayName}</div>
+          </div>`;
+}
+
+async function displayWeather(selectedCity) {
+  const { lat, lon } = await getCityLocation(selectedCity);
+  const { city, list } = await getCityWeather(lat, lon);
+
+  showCityWeather(city, list);
+}
+
+cityDropdown.addEventListener("change", async () => {
+  displayWeather(cityDropdown.value);
+});
+
+createCitiesOptions(cities);
+displayWeather(generateValueFromCity(cities[0]));

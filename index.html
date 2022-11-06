@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,38 +13,17 @@
     <div class="site-wrapper">
       <input type="search" list="cities" />
       <i class="fa-solid fa-magnifying-glass"></i>
-      <select id="cities">
-        <option value="rasht" selected>Rasht</option>
-        <option value="tehran">Tehran</option>
-        <option value="stockholm">Stockholm</option>
-      </select>
+      <select id="cities"></select>
       <p id="city-name" class="city-name"></p>
       <time id="time" class="time"></time>
-      <div id="current-icon" class="current-icon">
-      </div>
+      <div id="current-icon" class="current-icon"></div>
       <p id="temp" class="temperature">&deg;C</p>
       <p id="description" class="description"></p>
       <div class="wind-humidity">
-        <image id="wind" class="fa-solid fa-wind">
-        <image id="humidity" class="fa-solid fa-droplet">
+        <i id="wind" class="fa-solid fa-wind"></i>
+        <i id="humidity" class="fa-solid fa-droplet"></i>
       </div>
-      <div class="next-days-container">
-        <div>
-          <div id="today-icon"></div>
-          <div id="today-temp">temperature</div>
-          <div>Today</div>
-        </div>
-        <div>
-          <div id="tommorow-icon"></div>
-          <div id="tomorrow">temperature</div>
-          <div id="tomorrow-day-name"></div>
-        </div>
-        <div>
-          <div id="day-after-tommorow-icon"></div>
-          <div id="day-after-tomorrow">temperature</div>
-          <div id="day-after-tomorrow-day-name"></div>
-        </div>
-      </div>
+      <div class="next-days-container" id="next-days-container"></div>
     </div>
     <script src="./assets/js/main.js"></script>
   </body>
