@@ -1,4 +1,4 @@
-const cities = [
+export const cities = [
   { name: "Rasht", countryCode: "IR" },
   { name: "Tehran", countryCode: "IR" },
   { name: "Stockholm", countryCode: "SE" },
