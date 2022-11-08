@@ -1,3 +1,5 @@
+import {cities} from "./list-of-cities.js";
+console.log(cities)
 const cityDropdown = document.getElementById("cities");
 const appId = "e0cb24360c821c3571a49c9d05be0fb1";
 
