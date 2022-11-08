@@ -1,12 +1,6 @@
 const cityDropdown = document.getElementById("cities");
 const appId = "e0cb24360c821c3571a49c9d05be0fb1";
 
-const cities = [
-  { name: "Rasht", countryCode: "IR" },
-  { name: "Tehran", countryCode: "IR" },
-  { name: "Stockholm", countryCode: "SE" },
-];
-
 function generateValueFromCity(city) {
   return `${city.name},${city.countryCode}`;
 }
