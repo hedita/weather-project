@@ -1,6 +1,5 @@
 import {cities} from "./list-of-cities.js";
 
-const citiesTemplate = document.getElementById("cities-template");
 const searchInput = document.getElementById("search-input");
 
 const cityDropdown = document.getElementById("cities");
@@ -130,6 +129,12 @@ async function displayWeather(selectedCity) {
 
 cityDropdown.addEventListener("change", async () => {
   displayWeather(cityDropdown.value);
+});
+
+searchInput.addEventListener('keyup', function (e) {
+  if (e.key === 'Enter') {
+    displayWeather(searchInput.value);
+  }
 });
 
 createCitiesOptions(cities);
