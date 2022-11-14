@@ -20,16 +20,6 @@ function filterCitiesByName(keyword, cities) {
   return filteredCities
 }
 
-function createCitiesOptions(cities) {
-  let optionsHtml = "";
-  cities.forEach((city) => {
-    optionsHtml += `<option value="${generateValueFromCity(city)}">${
-      city.name
-    }</option>`;
-  });
-  cityDropdown.innerHTML = optionsHtml;
-}
-
 async function getCityLocation(city) {
   const data = await fetch(
     `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${appId}`
@@ -127,10 +117,6 @@ async function displayWeather(selectedCity) {
   showCityWeather(city, list);
 }
 
-cityDropdown.addEventListener("change", async () => {
-  displayWeather(cityDropdown.value);
-});
-
 searchInput.addEventListener('keyup', function (e) {
   if (e.key === 'Enter') {
     displayWeather(searchInput.value);
@@ -138,5 +124,4 @@ searchInput.addEventListener('keyup', function (e) {
   }
 });
 
-createCitiesOptions(cities);
 displayWeather(generateValueFromCity(cities[0]));
