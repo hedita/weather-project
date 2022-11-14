@@ -1,10 +1,24 @@
 import {cities} from "./list-of-cities.js";
-console.log(cities)
+
+const citiesTemplate = document.getElementById("cities-template");
+const searchInput = document.getElementById("search-input");
+
 const cityDropdown = document.getElementById("cities");
 const appId = "e0cb24360c821c3571a49c9d05be0fb1";
 
 function generateValueFromCity(city) {
   return `${city.name},${city.countryCode}`;
+}
+
+searchInput.addEventListener("keyup", function() {
+  console.log(filterCitiesByName(searchInput.value.toLowerCase(), cities))
+})
+
+function filterCitiesByName(keyword, cities) {
+  const filteredCities = cities.filter((city) => {
+    return city.name.toLowerCase().includes(keyword);
+  });
+  return filteredCities
 }
 
 function createCitiesOptions(cities) {
