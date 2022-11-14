@@ -134,6 +134,7 @@ cityDropdown.addEventListener("change", async () => {
 searchInput.addEventListener('keyup', function (e) {
   if (e.key === 'Enter') {
     displayWeather(searchInput.value);
+    searchInput.value= "";
   }
 });
 
