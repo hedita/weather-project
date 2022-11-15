@@ -10,6 +10,7 @@ function generateValueFromCity(city) {
 }
 
 searchInput.addEventListener("keyup", function() {
+  createFilteredCities(cities)
   filterCitiesByName(searchInput.value, cities)
 })
 
@@ -134,10 +135,5 @@ searchInput.addEventListener('keyup', function (e) {
     searchInput.value= "";
   }
 });
-
-searchInput.addEventListener("change", function() {
-  createFilteredCities(filterCitiesByName);
-})
-
 
 displayWeather(generateValueFromCity(cities[0]));
