@@ -1,8 +1,8 @@
 import {cities} from "./list-of-cities.js";
 
 const searchInput = document.getElementById("search-input");
+const listFilteredCities = document.getElementById("list-filtered-cities");
 
-const cityDropdown = document.getElementById("cities");
 const appId = "e0cb24360c821c3571a49c9d05be0fb1";
 
 function generateValueFromCity(city) {
@@ -10,7 +10,7 @@ function generateValueFromCity(city) {
 }
 
 searchInput.addEventListener("keyup", function() {
-  console.log(filterCitiesByName(searchInput.value.toLowerCase(), cities))
+  filterCitiesByName(searchInput.value, cities)
 })
 
 function filterCitiesByName(keyword, cities) {
@@ -19,6 +19,17 @@ function filterCitiesByName(keyword, cities) {
   });
   return filteredCities
 }
+
+function createFilteredCities(filteredCities) {
+  let optionsHtml = "";
+  filteredCities.forEach((city) => {
+    optionsHtml += `<option value="${generateValueFromCity(city)}">${
+      city.name
+    }</option>`;
+  });
+  listFilteredCities.innerHTML = optionsHtml;
+}
+
 
 async function getCityLocation(city) {
   const data = await fetch(
@@ -119,9 +130,14 @@ async function displayWeather(selectedCity) {
 
 searchInput.addEventListener('keyup', function (e) {
   if (e.key === 'Enter') {
-    displayWeather(searchInput.value);
+    displayWeather(searchInput.value.toLowerCase());
     searchInput.value= "";
   }
 });
+
+searchInput.addEventListener("change", function() {
+  createFilteredCities(filterCitiesByName);
+})
+
 
 displayWeather(generateValueFromCity(cities[0]));
