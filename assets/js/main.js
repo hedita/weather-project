@@ -1,25 +1,36 @@
-const cityDropdown = document.getElementById("cities");
-const appId = "e0cb24360c821c3571a49c9d05be0fb1";
+import {cities} from "./list-of-cities.js";
 
-const cities = [
-  { name: "Rasht", countryCode: "IR" },
-  { name: "Tehran", countryCode: "IR" },
-  { name: "Stockholm", countryCode: "SE" },
-];
+const searchInput = document.getElementById("search-input");
+const listFilteredCities = document.getElementById("list-filtered-cities");
+
+const appId = "e0cb24360c821c3571a49c9d05be0fb1";
 
 function generateValueFromCity(city) {
   return `${city.name},${city.countryCode}`;
 }
 
-function createCitiesOptions(cities) {
+searchInput.addEventListener("keyup", function() {
+  createFilteredCities(cities)
+  filterCitiesByName(searchInput.value, cities)
+})
+
+function filterCitiesByName(keyword, cities) {
+  const filteredCities = cities.filter((city) => {
+    return city.name.toLowerCase().includes(keyword);
+  });
+  return filteredCities
+}
+
+function createFilteredCities(filteredCities) {
   let optionsHtml = "";
-  cities.forEach((city) => {
+  filteredCities.forEach((city) => {
     optionsHtml += `<option value="${generateValueFromCity(city)}">${
       city.name
     }</option>`;
   });
-  cityDropdown.innerHTML = optionsHtml;
+  listFilteredCities.innerHTML = optionsHtml;
 }
+
 
 async function getCityLocation(city) {
   const data = await fetch(
@@ -118,9 +129,11 @@ async function displayWeather(selectedCity) {
   showCityWeather(city, list);
 }
 
-cityDropdown.addEventListener("change", async () => {
-  displayWeather(cityDropdown.value);
+searchInput.addEventListener('keyup', function (e) {
+  if (e.key === 'Enter') {
+    displayWeather(searchInput.value.toLowerCase());
+    searchInput.value= "";
+  }
 });
 
-createCitiesOptions(cities);
 displayWeather(generateValueFromCity(cities[0]));

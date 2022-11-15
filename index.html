@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,9 +10,10 @@
   </head>
   <body>
     <div class="site-wrapper">
-      <input type="search" list="cities" />
+      <input list="list-filtered-cities" id="search-input" type="search" list="cities" />
+      <datalist id="list-filtered-cities"></datalist>
       <i class="fa-solid fa-magnifying-glass"></i>
-      <select id="cities"></select>
+      <div id="cities"></div>
       <p id="city-name" class="city-name"></p>
       <time id="time" class="time"></time>
       <div id="current-icon" class="current-icon"></div>
@@ -25,6 +25,6 @@
       </div>
       <div class="next-days-container" id="next-days-container"></div>
     </div>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
   </body>
 </html>
